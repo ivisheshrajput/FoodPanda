@@ -1,15 +1,20 @@
 import React from "react";
 
 function Shimmer() {
-    return (
-        <div className="grid grid-cols-4 grid-rows gap-y-6 justify-items-center">
-
-            {Array(20).fill("").map((item, index) => <div className="  p-3 w-[300px] h-[350px] border-2  rounded-2xl bg-gray-500   hover:bg-orange-100  shadow-lg " key={index}></div>)}
-
-        </div>
-    )
-
-
-};
+  return (
+    <>
+      <div className="grid grid-cols-5 grid-rows gap-y-6 justify-items-center mt-24  mb-10">
+        {Array(20)
+          .fill("")
+          .map((item, index) => (
+            <div
+              className="w-[250px] h-[250px] bg-gray-300 rounded-md "
+              key={index}
+            ></div>
+          ))}
+      </div>
+    </>
+  );
+}
 
 export default Shimmer;

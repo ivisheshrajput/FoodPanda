@@ -1,18 +1,23 @@
 import { IMG_CDN } from "../utils/config";
 const CartTable = ({ tableContent }) => {
-    return (
-        <div className="flex justify-between    " >
+  return (
+    <tr className="flex justify-between  mb-4">
+      <td className="flex space-x-10">
+        <img
+          src={IMG_CDN + tableContent.imageId}
+          alt="Dish Pic"
+          className="w-10 h-10"
+        />
 
-            <div>
-                <h1>{tableContent.name}</h1>
-                <div className="w-16  h-16   ">
-                    <img src={IMG_CDN + tableContent.imageId} alt="Dish Pic" />
-                </div>
-            </div>
-            <div className="text-sm ">₹ {tableContent.price ? tableContent.defaultPrice / 100 : tableContent.price / 100}
-            </div>
-
-        </div>
-    )
-}
+        <div>{tableContent.name}</div>
+      </td>
+      <td className="text-sm flex md:mx-72  ">
+        ₹{" "}
+        {tableContent.price
+          ? tableContent.defaultPrice / 100
+          : tableContent.price / 100}
+      </td>
+    </tr>
+  );
+};
 export default CartTable;

@@ -1,32 +1,44 @@
 import React, { useState } from "react";
 import RestaurantCategoryMenu from "./RestaurantCategoryMenu";
-const RestaurantCategory = ({ restaurantCategories, dropCategory, setShowIndex }) => {
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-    //const [dropCategory, setDropCategory] = useState(false);
+const RestaurantCategory = ({ restaurantCategories, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-    const categoryItem = restaurantCategories?.itemCards;
-    //console.log(categoryItem);
+  const toggleCategory = () => {
+    setIsExpanded(!isExpanded);
+  };
 
-    const handleClick = () => {
-        //  setDropCategory(!dropCategory)
-        setShowIndex();
-    }
+  return (
+    <div className="mx-auto w-8/12 my-4 p-5  bg-[#940b0b] bg-gradient-to-tr  from-black rounded-md   shadow-lg  ">
+      <div
+        className="flex justify-between cursor-pointer"
+        onClick={toggleCategory}
+      >
+        <span className="ml-4  text-base  text-white font-semibold tracking-widest">
+          {restaurantCategories?.title} (
+          {restaurantCategories?.itemCards.length})
+        </span>
+        <span className="mr-4">
+          {isExpanded ? (
+            <FaChevronUp className="text-white" />
+          ) : (
+            <FaChevronDown className="text-white" />
+          )}
+        </span>
+      </div>
 
-
-    return (
-        <div className="mx-auto w-6/12 my-4 p-4   bg-orange-50   shadow-lg  " onClick={handleClick}>
-            <div className="flex justify-between ">
-                <span className="ml-4  text-base font-bold  ">{restaurantCategories?.title} ({restaurantCategories?.itemCards.length}) </span>
-                <span className="mr-4">▽</span>
-            </div>
-
-            {dropCategory && <div>{categoryItem.map((categoryMenu) => (<RestaurantCategoryMenu categoryMenu={categoryMenu.card?.info} key={categoryMenu.card?.info?.id} />))}</div>}
-
-
-            {/* //Way if we want to make use map here instead of Restaurant Category
-            <RestaurantCategoryMenu categoryMenu={categoryItem} /> */}
+      {isExpanded && (
+        <div>
+          {restaurantCategories?.itemCards.map((categoryMenu) => (
+            <RestaurantCategoryMenu
+              categoryMenu={categoryMenu.card?.info}
+              key={categoryMenu.card?.info?.id}
+            />
+          ))}
         </div>
-    )
-
-}
+      )}
+    </div>
+  );
+};
 export default RestaurantCategory;

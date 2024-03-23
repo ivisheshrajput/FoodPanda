@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Finger Paint';
+    src: url('../public/font/FingerPaint-Regular.ttf') format('truetype');
+    /* Add other font formats as needed */
+  }
+  
+  /* Optionally, define a class to apply the font */
+  .finger-paint {
+    font-family: 'Finger Paint', cursive;
+  }
