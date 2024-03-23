@@ -11,7 +11,15 @@ const useRestaurantList = () => {
 
   async function getRestaurant() {
     try {
-      const fetchList = await fetch(API_Restaurant_List);
+      // const fetchList = await fetch(API_Restaurant_List);
+      const fetchList = await fetch(
+        "https://proxy.cors.sh/" + API_Restaurant_List,
+        {
+          headers: {
+            "x-cors-api-key": "temp_3bbecc3d5f1da1788f137bfcb6c1d484",
+          },
+        }
+      );
       const json = await fetchList.json();
       setRestaurantName(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
