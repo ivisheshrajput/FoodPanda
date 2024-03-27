@@ -12,7 +12,7 @@ const useRestaurantMenu = (id) => {
       "https://proxy.cors.sh/" + API_Restaurant_MENU + id,
       {
         headers: {
-          "x-cors-api-key": "temp_3bbecc3d5f1da1788f137bfcb6c1d484",
+          "x-cors-api-key": "temp_c4f211b09a1a3fa56a71a382d9fc7e90",
         },
       }
     );

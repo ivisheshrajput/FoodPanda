@@ -16,10 +16,11 @@ const useRestaurantList = () => {
         "https://proxy.cors.sh/" + API_Restaurant_List,
         {
           headers: {
-            "x-cors-api-key": "temp_3bbecc3d5f1da1788f137bfcb6c1d484",
+            "x-cors-api-key": "temp_c4f211b09a1a3fa56a71a382d9fc7e90",
           },
         }
       );
+
       const json = await fetchList.json();
       setRestaurantName(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
