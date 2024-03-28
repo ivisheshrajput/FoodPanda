@@ -12,17 +12,18 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(null);
 
   if (menuItem === null) return <Shimmer />;
-  const { name, cloudinaryImageId } = menuItem?.cards[0]?.card?.card?.info;
-  const { itemCards } =
-    menuItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card;
+  {console.log(menuItem,"xxxxxxxxxxxxxxxxx")}
+  const { name, cloudinaryImageId } = menuItem?.cards[2]?.card?.card?.info;
+  // const { itemCards } =
+  //   menuItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card;
   const categories =
-    menuItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    menuItem?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  const { cuisines, locality } = menuItem?.cards[0]?.card?.card?.info;
+  const { cuisines, locality } = menuItem?.cards[2]?.card?.card?.info;
 
   return (
     <>
